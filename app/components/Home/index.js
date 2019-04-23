@@ -4,17 +4,21 @@ import styles from './styles';
 
 class Home extends Component{
 
-state={username:"", password:""}
+    state={username:"", password:""}
 
-checkLogin(){
-    const {username, password} = this.state
-    if(username == 'admin' && password == 'admin'){
-        console.warn("Login is Ok")
-        this.props.navigation.navigate('dashboard')
-    }else{
-        Alert.alert('Error', 'Username/Password mismatch', [{text:"Okay"}])
+    static navigationOptions = {
+        header:null
     }
-}
+
+    checkLogin(){
+        const {username, password} = this.state
+        if(username == 'admin' && password == 'admin'){
+            console.warn("Login is Ok")
+            this.props.navigation.navigate('dashboard')
+        }else{
+            Alert.alert('Error', 'Username/Password mismatch', [{text:"Okay"}])
+        }
+    }
 
     render(){
         const {heading, input, parent} = styles
